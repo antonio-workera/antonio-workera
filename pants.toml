@@ -1,0 +1,33 @@
+[GLOBAL]
+pants_version = "2.9.0"
+backend_packages = ["pants.backend.python", "pants.backend.python.lint.black", "pants.backend.python.lint.isort", "pants.backend.python.typecheck.mypy"]
+pants_ignore.add = ["venv/", "mlp_backend/", "/tests/"]
+
+[anonymous-telemetry]
+enabled = false
+
+[mypy]
+lockfile = "mypy_lockfile.txt"
+extra_requirements.add = ["python>=3.6.1", "returns==0.17.0", "pydantic==1.8.2"]
+
+[isort]
+args=["--profile=black"]
+
+[pytest]
+lockfile = "pytest_lockfile"
+extra_requirements.add = [
+  "six",
+  "pytest-django>=3.9.0,<4",
+]
+
+[source]
+marker_filenames = ["pyproject.toml"]
+
+
+[python]
+interpreter_constraints = [">=3.9"]
+tailor_ignore_solitary_init_files = false
+invalid_lockfile_behavior = 'ignore'
+
+[python-infer]
+inits = true
