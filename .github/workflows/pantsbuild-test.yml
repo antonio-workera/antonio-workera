@@ -24,8 +24,6 @@ jobs:
         run: python --version
       - name: Pantsbuild Version
         run: ./pants --version
-      - name: Package
-        run: "./pants package ::"
       - name: Test
         run: "./pants test src/python/{core,entrypoints}::"
       - name: Lint
