@@ -15,8 +15,8 @@ jobs:
         python-version: ['3.9'] 
         architecture: ['x64'] 
     steps:
-      - name: PantsBuild Tests
       - uses: actions/checkout@v2
+      - name: PantsBuild Tests
       - uses: actions/setup-python@v2
         with: 
           python-version: ${{ matrix.python-version }}
