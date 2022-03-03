@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Pants-Test
+name: PantsBuild-Test
 on:
   pull_request:
     branches: 
@@ -10,15 +8,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  Pants-Tests:
+  Pantsbuild-Tests:
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        python-version: ['3.9'] 
+        architecture: ['x64'] 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-        with:
-          python-version: '3.9' 
-          architecture: 'x64' 
+        with: 
+          python-version: ${{ matrix.node-version }}
           
       - name: Python version
         run: python --version
@@ -28,4 +28,3 @@ jobs:
         run: "./pants test src/python/{core,entrypoints}::"
       - name: Lint
         run: "./pants lint ::"
-
