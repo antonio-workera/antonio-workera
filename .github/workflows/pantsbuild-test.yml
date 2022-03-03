@@ -22,12 +22,12 @@ jobs:
           
       - name: Python version
         run: python --version
-      - name: Version
+      - name: Pantsbuild Version
         run: ./pants --version
       - name: Package
         run: "./pants package ::"
       - name: Test
-        run: ./pants test src/python/{core,entrypoints}::
+        run: "./pants test src/python/{core,entrypoints}::"
       - name: Lint
         run: ./pants lint ::
 
