@@ -23,6 +23,8 @@ jobs:
       - name: Pantsbuild Test
         run: |
           python --version
+          ./pants --version
+          ./pants package ::
           ./pants test src/python/{core,entrypoints}::
           ./pants lint ::
 
