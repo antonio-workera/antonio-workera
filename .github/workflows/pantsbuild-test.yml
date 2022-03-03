@@ -20,11 +20,14 @@ jobs:
           python-version: '3.9' 
           architecture: 'x64' 
           
-      - name: Pantsbuild Test
-        run: |
-          python --version
-          ./pants --version
-          ./pants package ::
-          ./pants test src/python/{core,entrypoints}::
-          ./pants lint ::
+      - name: Python version
+        run: python --version
+      - name: Version
+        run: ./pants --version
+      - name: Package
+        run: "./pants package ::"
+      - name: Test
+        run: ./pants test src/python/{core,entrypoints}::
+      - name: Lint
+        run: ./pants lint ::
 
