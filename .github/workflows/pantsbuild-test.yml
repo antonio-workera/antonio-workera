@@ -29,5 +29,5 @@ jobs:
       - name: Test
         run: "./pants test src/python/{core,entrypoints}::"
       - name: Lint
-        run: ./pants lint ::
+        run: "./pants lint ::"
 
