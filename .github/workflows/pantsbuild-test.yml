@@ -20,7 +20,7 @@ jobs:
           python-version: '3.9' 
           architecture: 'x64' 
           
-      - name: Run a one-line script
+      - name: Pantsbuild Test
         run: |
           python --version
           ./pants test src/python/{core,entrypoints}::
