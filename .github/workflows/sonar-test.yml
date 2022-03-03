@@ -6,11 +6,13 @@ on:
      
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+  
 jobs:
+
   sonarQubeTrigger:
     name: SonarQube Trigger
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@master
     - name: SonarQube Scan
@@ -18,3 +20,4 @@ jobs:
       with:
         host: ${{ secrets.SONARQUBE_HOST }}
         login: ${{ secrets.SONARQUBE_TOKEN }}
+        projectName: "Test"
